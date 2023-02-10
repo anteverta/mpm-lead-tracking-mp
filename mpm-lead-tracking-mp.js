@@ -1,7 +1,8 @@
 function getParams(selector) {
-    console.log("selector", selector);
     var src = document.querySelector(selector).getAttribute("src").split("?");
+    console.log("src", src);
     var args = src[src.length - 1];
+    console.log("args", args);
     args = args.split("&");
     var parameters = {};
     for (var i = args.length - 1; i >= 0; i--) {
@@ -12,5 +13,5 @@ function getParams(selector) {
 };
 
 var Params = getParams("#MPMLeadConversion");
-console.log("gcid", parameters[gcid]);
-console.log("clientID", parameters[clientID]);
+console.log("gcid", Params[gcid]);
+console.log("clientID", Params[clientID]);
