@@ -18,9 +18,9 @@ function getParams(selector) {
 	var clientID = Params["clientID"]
 
     var hitType = 'event';
-    var eventCategory = 'Measurement Protocol';
-    var eventAction = 'lead-path pageview';
-    var eventLabel = clientID;
+    var eventCategory = 'MPM Lead Conversion';
+    var eventAction = 'thank-you-page';
+    var eventLabel = 'Client ID: ' + clientID;
 
 
     var url = 'https://www.google-analytics.com/collect?' +
@@ -30,7 +30,7 @@ function getParams(selector) {
         't=' + hitType + '&' +
         'ec=' + eventCategory + '&' +
         'ea=' + eventAction + '&' +
-        'el=' + eventLabel + '&';
+        'el=' + eventLabel;
 
     console.log("url = ", url);
 
