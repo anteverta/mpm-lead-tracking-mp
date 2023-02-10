@@ -12,7 +12,30 @@ function getParams(selector) {
     return parameters;
 };
 
-var Params = getParams("#MPMLeadConversion");
-console.log("Params", Params);
-console.log("gcid", Params["gcid"]);
-console.log("clientID", Params["clientID"]);
+function sendEvent() {
+	var Params = getParams("#MPMLeadConversion");
+console.log("Params = ", Params);
+
+    var gcid = Params["gcid"]
+	var clientID = Params["clientID"]
+
+    var hitType = 'event';
+    var eventCategory = 'Measurement Protocol';
+    var eventAction = 'lead-path pageview';
+    var eventLabel = clientID;
+
+
+    var url = 'https://www.google-analytics.com/collect?' +
+        'v=1&' +
+        'tid=UA-108050455-2&' +
+        'cid=' + gcid + '&' +
+        't=' + hitType + '&' +
+        'ec=' + eventCategory + '&' +
+        'ea=' + eventAction + '&' +
+        'el=' + eventLabel + '&' +
+        'ev=' + eventValue;
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
+    xhr.send();
+}
