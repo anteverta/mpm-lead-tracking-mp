@@ -14,5 +14,5 @@ function getParams(selector) {
 
 var Params = getParams("#MPMLeadConversion");
 console.log("Params", Params);
-console.log("gcid", Params[gcid]);
-console.log("clientID", Params[clientID]);
+console.log("gcid", Params["gcid"]);
+console.log("clientID", Params["clientID"]);
