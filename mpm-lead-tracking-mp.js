@@ -1,4 +1,5 @@
 function getParams(selector){
+    console.log("selector", selector)
     var src = $(selector).attr("src").split("?");    
     var args = src[src.length-1];
     args = args.split("&");
