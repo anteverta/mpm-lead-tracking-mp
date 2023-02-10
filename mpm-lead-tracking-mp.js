@@ -1,8 +1,6 @@
 function getParams(selector) {
     var src = document.querySelector(selector).getAttribute("src").split("?");
-    console.log("src", src);
     var args = src[src.length - 1];
-    console.log("args", args);
     args = args.split("&");
     var parameters = {};
     for (var i = args.length - 1; i >= 0; i--) {
@@ -32,8 +30,7 @@ function getParams(selector) {
         't=' + hitType + '&' +
         'ec=' + eventCategory + '&' +
         'ea=' + eventAction + '&' +
-        'el=' + eventLabel + '&' +
-        'ev=' + eventValue;
+        'el=' + eventLabel + '&';
 
     console.log("url = ", url);
 
