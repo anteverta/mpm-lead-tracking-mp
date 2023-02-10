@@ -12,9 +12,9 @@ function getParams(selector) {
     return parameters;
 };
 
-function sendEvent() {
+(function sendEvent() {
 	var Params = getParams("#MPMLeadConversion");
-console.log("Params = ", Params);
+    console.log("Params = ", Params);
 
     var gcid = Params["gcid"]
 	var clientID = Params["clientID"]
@@ -35,7 +35,9 @@ console.log("Params = ", Params);
         'el=' + eventLabel + '&' +
         'ev=' + eventValue;
 
+    console.log("url = ", url);
+
     var xhr = new XMLHttpRequest();
     xhr.open('GET', url, true);
     xhr.send();
-}
+})();
