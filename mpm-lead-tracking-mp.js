@@ -1,4 +1,4 @@
-function getParams(){
+function getParams(selector){
     console.log("selector", selector);
     var src = $(selector).attr("src").split("?");    
     var args = src[src.length-1];
@@ -12,7 +12,7 @@ function getParams(){
     return parameters;
 }   
     console.log("gcid", parameters[gcid])
-
-    var Params = getParams()
+    
+    var Params = getParams("#mpm-lead-tracking-mp-js")
 	console.log("gcid", parameters[gcid])
 	console.log("clientID", parameters[clientID])
