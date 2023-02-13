@@ -52,7 +52,7 @@ var params = (function getparams(selector) {
     console.log('gcid: ', gcid, "gcid type", typeof(gcid));
     console.log('clientID: ', clientID, "clientID type", typeof(clientID));
 
-    fetch(`https://www.google-analytics.com/mp/collect?measurement_id=${measurement_id}&api_secret=${api_secret}`, {
+    fetch(`https://www.google-analytics.com/debug/mp/collect?measurement_id=${measurement_id}&api_secret=${api_secret}`, {
         method: 'POST',
         body: JSON.stringify({
           'client_id': gcid,
@@ -60,7 +60,7 @@ var params = (function getparams(selector) {
             {
               'name': 'MPM_Lead_Conversion',
               'params': {
-                'Client ID': clientID
+                'Client_ID': clientID
               }
             }
           ]
