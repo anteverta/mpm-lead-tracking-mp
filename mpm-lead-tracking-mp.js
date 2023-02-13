@@ -54,7 +54,8 @@ var params = (function getparams(selector) {
             {
               name: 'MPM_Lead_Conversion',
               params: {
-                'Client ID': clientID
+                'Client ID': clientID,
+                'debug_mode':true
               }
             }
           ]
