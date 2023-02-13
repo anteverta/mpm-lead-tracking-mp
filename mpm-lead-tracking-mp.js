@@ -1,4 +1,4 @@
-var Params = (function getParams(selector) {
+var params = (function getparams(selector) {
     var src = document.querySelector(selector).getAttribute("src").split("?");
     var args = src[src.length - 1];
     args = args.split("&");
@@ -10,8 +10,11 @@ var Params = (function getParams(selector) {
     return parameters;
 })("#MPMLeadConversion");
 
-    var gcid = Params["gcid"]
-	var clientID = Params["clientID"]
+    console.log('params', params);
+    var gcid = params["gcid"];
+    console.log('gcid', gcid);
+	  var clientID = params["clientID"];
+    console.log('clientID', clientID);
 
 (function sendUAEvent() {
 	var hitType = 'event';
