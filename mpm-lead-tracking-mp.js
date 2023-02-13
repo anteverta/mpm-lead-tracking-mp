@@ -72,7 +72,7 @@ var params = (function getparams(selector) {
           console.log('Success:', data);
           } catch(err) {
             // The response wasn't a JSON object
-            console.error('Error:', err);
+            console.error('Error:', err, 'text: ', text);
             }
             });
         //.then(response => response.json())
