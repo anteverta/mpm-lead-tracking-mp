@@ -76,10 +76,8 @@ var params = (function getparams(selector) {
             return Promise.reject(error);
         }
 
-        element.innerHTML = data?.total;
     })
     .catch(error => {
-        element.parentElement.innerHTML = `Error: ${error}`;
         console.error('There was an error!', error);
     });
         //.then(response => response.json())
