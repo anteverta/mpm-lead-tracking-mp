@@ -52,9 +52,6 @@ var params = (function getparams(selector) {
 
     fetch(`https://www.google-analytics.com/mp/collect?measurement_id=${measurement_id}&api_secret=${api_secret}`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
         body: JSON.stringify({
           'client_id': gcid,
           'events': [
