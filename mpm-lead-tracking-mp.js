@@ -1,4 +1,5 @@
 var params = (function getparams(selector) {
+    console.log('params started. selector = ', params);
     var src = document.querySelector(selector).getAttribute("src").split("?");
     var args = src[src.length - 1];
     args = args.split("&");
