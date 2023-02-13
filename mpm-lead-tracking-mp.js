@@ -55,7 +55,7 @@ var params = (function getparams(selector) {
         headers: {
           'Content-Type': 'application/json'
         },
-        payload: JSON.stringify({
+        body: JSON.stringify({
           'client_id': gcid,
           'events': [
             {
