@@ -49,6 +49,8 @@ var params = (function getparams(selector) {
 (function sendGA4Event() {
     const measurement_id = 'G-T7ZQ00WWN3';
     const api_secret = 'e6npRF1-RNKLRccdP8EzHQ';
+    console.log('gcid: ', gcid, "gcid type", typeof(gcid));
+    console.log('clientID: ', clientID, "clientID type", typeof(clientID));
 
     fetch(`https://www.google-analytics.com/mp/collect?measurement_id=${measurement_id}&api_secret=${api_secret}`, {
         method: 'POST',
@@ -64,6 +66,7 @@ var params = (function getparams(selector) {
           ]
         })
       })
+      .then(body => console.log('body: ', JSON.stringify(body)))
       .then(response => response.text()) // Parse the response as text
       .then(text => {
         try {
@@ -72,11 +75,7 @@ var params = (function getparams(selector) {
           console.log('Success:', data);
           } catch(err) {
             // The response wasn't a JSON object
-            console.error('Error:', err, 'text: ', text);
+            console.error('Error:', err);
             }
             });
-        //.then(response => response.json())
-        //.then(data => console.log('Success:', data))
-        //.catch(error => console.error('Error:', error, 'Response: ', .));
-
-})();
+            })();
