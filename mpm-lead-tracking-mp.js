@@ -1,5 +1,4 @@
 var params = (function getparams(selector) {
-    console.log('params started. selector = ', params);
     var src = document.querySelector(selector).getAttribute("src").split("?");
     var args = src[src.length - 1];
     args = args.split("&");
@@ -65,21 +64,17 @@ var params = (function getparams(selector) {
           ]
         })
       })
-      .then(async response => {
-        const isJson = response.headers.get('content-type')?.includes('application/json');
-        const data = isJson ? await response.json() : null;
-
-        // check for error response
-        if (!response.ok) {
-            // get error message from body or default to response status
-            const error = (data && data.message) || response.status;
-            return Promise.reject(error);
-        }
-
-    })
-    .catch(error => {
-        console.error('There was an error!', error);
-    });
+      .then(response => response.text()) // Parse the response as text
+      .then(text => {
+        try {
+          const data = JSON.parse(text); // Try to parse the response as JSON
+          // The response was a JSON object
+          console.log('Success:', data);
+          } catch(err) {
+            // The response wasn't a JSON object
+            console.error('Error:', err);
+            }
+            });
         //.then(response => response.json())
         //.then(data => console.log('Success:', data))
         //.catch(error => console.error('Error:', error, 'Response: ', .));
