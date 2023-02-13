@@ -36,10 +36,10 @@ var params = (function getparams(selector) {
     xhr.onreadystatechange = function() {
       if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
           // Request was successful
-          console.log(xhr.responseText);
+          console.log('UA request status: ', xhr.status);
       } else if (xhr.readyState === XMLHttpRequest.DONE && xhr.status !== 200) {
           // Request failed
-          console.error("Request failed with status: " + xhr.status);
+          console.error("UA request failed with status: " + xhr.status);
       }
   };
     xhr.send();
@@ -68,6 +68,6 @@ var params = (function getparams(selector) {
       })
         .then(response => response.json())
         .then(data => console.log('Success:', data))
-        .catch(error => console.error('Error:', error));
+        .catch(error => console.log('Error:', error));
 
 })();
