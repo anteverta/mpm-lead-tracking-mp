@@ -55,10 +55,10 @@ var params = (function getparams(selector) {
         method: 'POST',
         body: JSON.stringify({
           'client_id': gcid,
-          events: [
+          'events': [
             {
-              name: 'MPM_Lead_Conversion',
-              params: {
+              'name': 'MPM_Lead_Conversion',
+              'params': {
                 'Client ID': clientID
               }
             }
