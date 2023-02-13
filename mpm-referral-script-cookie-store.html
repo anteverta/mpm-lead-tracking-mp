@@ -1,0 +1,30 @@
+<script>(function() {
+  // Get the query string from the URL
+  var queryString = window.location.search;
+
+  // Check if the query string contains "ref"
+  if (queryString.indexOf("ref") !== -1) {
+    // Extract the value of the "ref" parameter
+    var refSource = new URLSearchParams(queryString).get("ref");
+    
+    // Check if the value of "ref" is equal to "mpm"
+    if (refSource === "mpm") {
+      // Output the value of the "utm_source" parameter to the console
+     // console.log("ref: " + refSource);
+      
+      // Call the setMPMTrackingCookie function
+      setMPMTrackingCookie("mpmReferral", queryString, 90);
+    }
+  }
+  
+  function setMPMTrackingCookie(name, value, days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "") + " " + expires  + "; path=/";
+  }
+})();
+</script>

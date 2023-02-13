@@ -22,7 +22,7 @@ var params = (function(){
 
     // Set the src attribute of the script element to the URL of the script plus the params
     // MPM-Step-2 link here --->
-    js.src = "https://rawcdn.githack.com/anteverta/mpm-lead-tracking-mp/f7945c1f72dd444ace39b0a2ad8605a63e7edede/mpm-lead-tracking-mp.js" + params;
+    js.src = "https://myperfectmortgage.com/wp-includes/js/mpm-lead-tracking-mp.js" + params;
 
     // Insert the new script element into the page before the first script element
     fjs.parentNode.insertBefore(js, fjs);
