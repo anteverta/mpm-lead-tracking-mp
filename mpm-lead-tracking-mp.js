@@ -11,11 +11,8 @@ var params = (function getparams(selector) {
     return parameters;
 })("#MPMLeadConversion");
 
-    console.log('params', params);
     var gcid = params["gcid"];
-    console.log('gcid', gcid);
 	  var clientID = params["clientID"];
-    console.log('clientID', clientID);
 
 (function sendUAEvent() {
 	var hitType = 'event';
@@ -33,10 +30,18 @@ var params = (function getparams(selector) {
         'ea=' + eventAction + '&' +
         'el=' + eventLabel;
 
-    console.log("url = ", url);
-
+  
     var xhr = new XMLHttpRequest();
     xhr.open('GET', url, true);
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+          // Request was successful
+          console.log(xhr.responseText);
+      } else if (xhr.readyState === XMLHttpRequest.DONE && xhr.status !== 200) {
+          // Request failed
+          console.error("Request failed with status: " + xhr.status);
+      }
+  };
     xhr.send();
 })();
 
