@@ -41,22 +41,20 @@ var params = (function getparams(selector) {
 })();
 
 
+
 (function sendGA4Event() {
     const measurement_id = 'G-T7ZQ00WWN3';
     const api_secret = 'e6npRF1-RNKLRccdP8EzHQ';
 
     fetch(`https://www.google-analytics.com/mp/collect?measurement_id=${measurement_id}&api_secret=${api_secret}`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
         body: JSON.stringify({
           client_id: gcid,
           events: [
             {
               name: 'MPM_Lead_Conversion',
               params: {
-                client_id: clientID
+                'client_id': clientID
               }
             }
           ]
