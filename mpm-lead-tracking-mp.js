@@ -65,8 +65,25 @@ var params = (function getparams(selector) {
           ]
         })
       })
-        .then(response => response.json())
-        .then(data => console.log('Success:', data))
-        .catch(error => console.error('Error:', error));
+      .then(async response => {
+        const isJson = response.headers.get('content-type')?.includes('application/json');
+        const data = isJson ? await response.json() : null;
+
+        // check for error response
+        if (!response.ok) {
+            // get error message from body or default to response status
+            const error = (data && data.message) || response.status;
+            return Promise.reject(error);
+        }
+
+        element.innerHTML = data?.total;
+    })
+    .catch(error => {
+        element.parentElement.innerHTML = `Error: ${error}`;
+        console.error('There was an error!', error);
+    });
+        //.then(response => response.json())
+        //.then(data => console.log('Success:', data))
+        //.catch(error => console.error('Error:', error, 'Response: ', .));
 
 })();
