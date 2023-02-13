@@ -62,8 +62,7 @@ var params = (function getparams(selector) {
         })
       })
         .then(response => response.json())
-        .then(response => console.log('Success:', JSON.stringify(response)))
-        .then(data => console.log('Success:', JSON.stringify(data)))
-        .catch(error => console.error('Error:', JSON.stringify(error)));
+        .then(data => console.log('Success:', data))
+        .catch(error => console.error('Error:', error));
 
 })();
